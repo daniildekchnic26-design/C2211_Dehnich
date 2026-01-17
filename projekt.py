@@ -2,13 +2,13 @@ import random
 
 
 class Animal:
-    def __init__(self, name):
+    def __init__(self, name, food, strength, play_need, happiness):
         self.name = name
-        self.food = 50
-        self.strength = 10
-        self.play_need = 50
-        self.happiness = 50
-        self.age = 0          # вік
+        self.food = food
+        self.strength = strength
+        self.play_need = play_need
+        self.happiness = happiness
+        self.age = 0
         self.alive = True
 
     def eat(self):
@@ -33,11 +33,11 @@ class Animal:
 
         if event == "good":
             self.happiness += 10
-            print("🎲 Випадкова подія: гарний настрій!")
+            print("🎲 Випадкова подія: щастя зросло!")
         elif event == "bad":
             self.food -= 10
             self.happiness -= 10
-            print("🎲 Випадкова подія: тварина захворіла 🤒")
+            print("🎲 Випадкова подія: невдача 😢")
         else:
             print("🎲 Нічого не сталося")
 
@@ -45,7 +45,7 @@ class Animal:
         self.age += 1
         self.happiness -= 2
         self.strength -= 1
-        print(f"📅 {self.name} постарів. Вік: {self.age}")
+        print(f"📅 Вік {self.name}: {self.age}")
 
     def check_status(self):
         if self.food <= 0:
@@ -68,9 +68,17 @@ class Animal:
         print(f"Щастя: {self.happiness}")
 
 
+# --- Налаштування гри ---
 name = input("Як назвати тварину? 🐾: ")
-animal = Animal(name)
 
+food = int(input("Початковий рівень їжі (0–100): "))
+strength = int(input("Початкова сила (0–100): "))
+play_need = int(input("Початкова потреба в грі (0–100): "))
+happiness = int(input("Початкове щастя (0–100): "))
+
+animal = Animal(name, food, strength, play_need, happiness)
+
+# --- Гра ---
 while animal.alive:
     animal.status()
 
