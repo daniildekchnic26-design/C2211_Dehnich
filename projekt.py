@@ -67,8 +67,6 @@ class Animal:
         print(f"Потреба в грі: {self.play_need}")
         print(f"Щастя: {self.happiness}")
 
-
-# --- Налаштування гри ---
 name = input("Як назвати тварину? 🐾: ")
 
 food = int(input("Початковий рівень їжі (0–100): "))
@@ -78,7 +76,6 @@ happiness = int(input("Початкове щастя (0–100): "))
 
 animal = Animal(name, food, strength, play_need, happiness)
 
-# --- Гра ---
 while animal.alive:
     animal.status()
 
